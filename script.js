@@ -16,6 +16,7 @@ playerInput = prompt("Make your Choice , Outlander");
 return playerSelection=playerInput.toUpperCase();
 }
 
+// Checking Choice
 if(choices.includes(playerSelection)){
     console.log("Atleast you have brain")
 }
@@ -26,6 +27,7 @@ else{
     console.log("IDIOT!")
 }
 
+// Function to play a round
 function playRound(playerSelection,computerSelection){
     if(playerSelection==='ROCK' & computerSelection==='PAPER'){
         computerWins++;
@@ -66,11 +68,12 @@ function playRound(playerSelection,computerSelection){
     }
 }
 
+// Prints Score
 function getScore(){
     return alert(playerWins +'-'+computerWins);
 }
 
-
+// Play Best of 3 Game
 function game(){
     alert("BE READY!");
     for(var i=1;i<=10;i++){
