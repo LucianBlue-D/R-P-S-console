@@ -4,29 +4,20 @@ let playerInput='';
 let playerSelection='';
 let computerWins = 0;
 let playerWins = 0;
-// Random Choice Function
-function getcomputerChoice(){
-    return choices[Math.floor(Math.random()*choices.length)];
+let computerSelection='';
+// Computer Choice Selection
+function getComputerChoice(){
+    return computerSelection =choices[Math.floor(Math.random()*choices.length)];
+    
 }
-
+// Player Choice Selection
 function getPlayerChoice(){
 playerInput = prompt("Make your Choice , Outlander");
 return playerSelection=playerInput.toUpperCase();
 }
-// Computer Choice Selection
-let computerSelection=getcomputerChoice();
-
-// Player Choice Selection
-
-getPlayerChoice();
-
-
-
-
 
 if(choices.includes(playerSelection)){
     console.log("Atleast you have brain")
-
 }
 else if(playerSelection==''){
     console.log("Make your choice, FOOL!")
@@ -37,10 +28,70 @@ else{
 
 function playRound(playerSelection,computerSelection){
     if(playerSelection==='ROCK' & computerSelection==='PAPER'){
+        computerWins++;
+        return alert("LOL! YOU LOST");
+    }
+    else if(playerSelection==='ROCK' & computerSelection==='SCISSORS'){
+        playerWins++;
+        return alert("Victory!"); 
+    }
+    else if(playerSelection==='PAPER' & computerSelection==='SCISSORS'){
+        computerWins++;
+        return alert("LOL! YOU LOST");
+    }
+    else if(playerSelection==='PAPER' & computerSelection==='ROCK'){
+        playerWins++;
+        return alert("Victory!") ;      
+    }
+    else if(playerSelection==='SCISSORS' & computerSelection==='ROCK'){
+        computerWins++;
+        return alert("LOL! YOU LOST");        
+    }
+    else if(playerSelection==='SCISSORS' & computerSelection==='PAPER'){
+        playerWins++;
+        return alert("Victory");
+                    
+    }
+    else if(playerSelection==='' & computerSelection!== ''){
+        computerWins++;
+        return alert("Make your choice fool! and a win for me");
 
+
+    }
+    else{
+        return alert("DRAW");
+        
+        
+
+    }
+}
+
+function getScore(){
+    return alert(playerWins +'-'+computerWins);
+}
+
+
+function game(){
+    alert("BE READY!");
+    for(var i=1;i<=10;i++){
+        if(computerWins===3){
+            alert("Just like I thought , You stood no chance against me");
+            break;
+        }
+        else if(playerWins===3){
+            alert("Victory!");
+            break;
+        }
+        else{}
+
+        getComputerChoice();
+        getPlayerChoice();
+        playRound(playerSelection,computerSelection);
+        getScore();
 
     }
 
 }
 
+game();
 
